@@ -1,50 +1,6 @@
 console.log("Hello World!");
 console.log("Please play Rock, Paper, Scissors");
 
-//Starting scores to add values to
-let humanScore = 0
-let computerScore = 0
-
-
-function playRound(humanChoice, computerChoice) {
-    if (humanChoice === computerChoice) {
-        alert("It's a Tie!");
-    } else if (humanChoice === "Rock" && computerChoice === "Scissors") {
-        alert("Computer Picked: " + computerChoice);
-        alert("You win the Round!");
-        humanScore++;
-    } else if (humanChoice === "Paper" && computerChoice === "Rock") {
-        alert("Computer Picked: " + computerChoice);
-        alert("You win the Round!");
-        humanScore++;
-    } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
-        alert("Computer Picked: " + computerChoice);
-        alert("You win the Round!");
-        humanScore++;
-    } else {
-        alert("Computer Picked: " + computerChoice);
-        alert("You lose the Round");
-        computerScore++;
-    }
-    alert(("Your Score: " + humanScore) + " " + ("Computers Score: " + computerScore));
-}
-
-
-function determineWinner() {
-    if (humanScore > computerScore) {
-      alert("You win the game!");
-    } else if (humanScore < computerScore) {
-      alert("You lose the game!");
-    } else {
-      alert("It's a tied game!");
-    }
-}
-
-const humanSelection = getHumanChoice()
-const computerSelection = getComputerChoice()
-
-playRound(humanSelection, computerSelection)
-
 //Make computer input, Generate random number between 1-3, 
 // assign 1 to rock, 2 to paper, 3 to scissors.
 function getComputerChoice() {//Bots Pick
@@ -71,4 +27,57 @@ function getHumanChoice() {//Human Pick
         return "Invalid entry, Please try again"
     }
 }
+
+
+//Starting scores to add values to
+function playGame(){
+
+    let humanScore = 0;
+    let computerScore = 0;
+
+    for(i = 0; i <5; i++){
+    const humanSelection = getHumanChoice()
+    const computerSelection = getComputerChoice()
+    playRound(humanSelection, computerSelection)
+    }
+
+    function playRound(humanChoice, computerChoice) {
+        if (humanChoice === computerChoice) {
+            alert("It's a Tie!");
+        } else if (humanChoice === "Rock" && computerChoice === "Scissors") {
+            alert("Computer Picked: " + computerChoice);
+            alert("You win the Round!");
+            humanScore++;
+        } else if (humanChoice === "Paper" && computerChoice === "Rock") {
+            alert("Computer Picked: " + computerChoice);
+            alert("You win the Round!");
+            humanScore++;
+        } else if (humanChoice === "Scissors" && computerChoice === "Paper") {
+            alert("Computer Picked: " + computerChoice);
+            alert("You win the Round!");
+            humanScore++;
+        } else {
+            alert("Computer Picked: " + computerChoice);
+            alert("You lose the Round");
+            computerScore++;
+        }
+        alert(("Your Score: " + humanScore) + "  " + ("Computers Score: " + computerScore));
+    }
+
+
+    function determineWinner() {
+        if (humanScore > computerScore) {
+            alert("You win the game!");
+        } else if (humanScore < computerScore) {
+            alert("You lose the game!");
+        } else {
+            alert("It's a tied game!");
+        }
+    }
+    determineWinner();
+}
+
+playGame();
+
+
 
